@@ -28,9 +28,15 @@ function performAction(e){
 		.then(function(data) {
 			console.log("inside the chained post");
 			console.log(data);
-			postData('/newAdd', {city:data.name, temperature:data.main.temp, date:newDate, userResponse:'Good'});
-		})
-		.then(updateUI())
+			postData('/newAdd', {city:data.name, temperature:data.main.temp, date:newDate, userResponse:'Good'})
+			.then(function(){
+			updateUI();
+			});
+		});
+		// .then(function(hanticanti){
+		// 	console.log(hanticanti);
+		// 	updateUI();
+		// });
 	}
 }
 
