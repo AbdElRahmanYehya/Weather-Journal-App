@@ -4,22 +4,24 @@
   <title>Weather Journal</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Weather Journal</h1>
-  <div id="result">
-    <label>City: </label>
-    <label id="city"></label>
+  <div id="entryHolder">
+    <label>City:</label>
+    <div id="city"></div>
     <br>
-    <label>Temperature</label>
-    <label id="temperature"></label>
+    <label>Temperature:</label>
+    <div id="temp"></div>
     <br>
-    <label>Date</label>
-    <label id="date"></label>
+    <label>Date:</label>
+    <div id="date"></div>
     <br>
-    <label>Your response</label>
-    <label id="response"></label>
+    <label>Your response:</label>
+    <div id="content"></div>
   </div>
   <div>
     <label>Enter Zip Code</label>
@@ -27,7 +29,7 @@
   </div>
   <div>
     <label>How are you feeling today</label>
-    <input type="text" id="feelings" placeholder="Enter your feelings here">
+    <textarea type="text" id="feelings" placeholder="Enter your feelings here"></textarea> 
   </div>
   <button id="generate" type="submit">Get temperature</button>
   <script src="app.js" type="text/javascript"></script>

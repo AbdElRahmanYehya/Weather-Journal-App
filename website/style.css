@@ -1,6 +1,8 @@
 body{
     background-color: rgb(255,227,94);
     padding: 0px 10px 0px 10px;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
 }
 
 h1{
@@ -9,15 +11,36 @@ h1{
     text-align: center;
 }
 
-label{
+div div{
+        color: red;
 }
 
-#result{
+button{
+    margin: 10px;
+    font-size: 20px;
+    background-color: black;
+    border: none;
+    color: rgb(255,227,94);
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(255,227,94);
+    color: black;
+    border-style: solid;
+}
+
+#entryHolder label{
+    font-weight: bold;
+    float: left;
+}
+
+#entryHolder{
     margin: 15px 50px 30px 50px; 
     padding: 10px;
     border-radius: 10px;
     border-style: solid;
-    visibility: visible;
+    visibility: hidden;
 }
 #zip{
     margin: 5px;
