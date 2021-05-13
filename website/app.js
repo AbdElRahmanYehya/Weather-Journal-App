@@ -5,8 +5,9 @@
  let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // API URL and key
-let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip='
-let apiKey = '&appid=065e8b48cd788d8876dabc213a837b5d';
+const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip='
+const unit = '&units=metric'
+const apiKey = '&appid=065e8b48cd788d8876dabc213a837b5d';
 
 document.getElementById('generate').addEventListener('click', performAction);
 
@@ -24,7 +25,7 @@ function performAction(e){
 	else
 	{
 		// call getTemperature to GET the temperature from the api
-		getTemperature(baseURL,newZip, apiKey)
+		getTemperature(baseURL,newZip, unit, apiKey)
 		// POST the data to projectData object in server
 		.then(function(data) {
 			postData('/add', {city:data.name, temperature:data.main.temp, date:newDate, userResponse:'Good'})
@@ -37,8 +38,8 @@ function performAction(e){
 }
 
 // GET the temperature from the api
-const getTemperature = async (baseURL, animal, key)=>{
-  const res = await fetch(baseURL+animal+key);
+const getTemperature = async (baseURL, zipCode, unit, key)=>{
+  const res = await fetch(baseURL+zipCode+key+unit);
   try {
     const data = await res.json();
     return data;
@@ -72,7 +73,7 @@ const updateUI = async ()=>{
 	try{
 		const allData = await request.json();
 		document.getElementById('city').innerHTML = allData[allData.length-1].city;
-		document.getElementById('temp').innerHTML = allData[allData.length-1].temperature;
+		document.getElementById('temp').innerHTML = allData[allData.length-1].temperature + '&#8451;';
 		document.getElementById('date').innerHTML = newDate;
 		document.getElementById('content').innerHTML = document.getElementById('feelings').value;
 		document.getElementById("entryHolder").style.visibility = "visible";
